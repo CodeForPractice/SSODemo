@@ -121,7 +121,6 @@ namespace Net.SSO.Server.Repository
         {
             if (_queryIsDirty)
             {
-                //Console.WriteLine(">> Sync QueryItems");
                 CreateItemsFromQuery();
                 _queryIsDirty = false;
             }
@@ -155,16 +154,12 @@ namespace Net.SSO.Server.Repository
         {
             if (queryItems != null)
             {
-                // First check if queryItems has been cleared (using
-                // QueryItems.Clear()), because this doesn't
-                // update dirty flag!!!
                 if (queryItems.Count == 0)
                 {
                     base.Query = "";
                 }
                 else if (queryItems.IsDirty)
                 {
-                    //Console.WriteLine(">> Sync Query");
                     CreateQueryFromItems();
                 }
 
